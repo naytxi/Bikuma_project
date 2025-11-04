@@ -7,7 +7,7 @@
           Actualiza tu proyecto con accesibilidad en la información y lleva tu mensaje a todas las personas.
         </p>
         <BaseButton class="hero__button" variant="contactar" :showArrow="true">
-          Contactar
+          Contacta con nosotros
         </BaseButton>
       </div>
 
@@ -35,7 +35,7 @@ import UiBackgroundSquare from '@/components/ui/BackgroundSquare.vue'
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 100px 120px;
+  padding: 90px 150px 40px;
   position: relative;
   overflow: hidden;
 
@@ -49,7 +49,7 @@ import UiBackgroundSquare from '@/components/ui/BackgroundSquare.vue'
   }
 
   &__text {
-    width: 450px;
+    width: 290px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -88,6 +88,7 @@ import UiBackgroundSquare from '@/components/ui/BackgroundSquare.vue'
     width: 800px;
      height: 600px; 
     margin-left: 10px;
+     margin-top: 25px;
     overflow: visible;
   }
 
@@ -104,7 +105,7 @@ import UiBackgroundSquare from '@/components/ui/BackgroundSquare.vue'
 
   &__square {
     position: absolute;
-    width: 760px;
+    width: 800px;
     height: 500px; ;
     top: 10px;
     left: 180px;

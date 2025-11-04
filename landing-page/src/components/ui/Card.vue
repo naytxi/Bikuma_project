@@ -29,17 +29,22 @@ defineProps({
   align-items: center;
   justify-content: flex-start;
   text-align: center;
+   transition: box-shadow 0.3s ease;
+
+    &:hover {
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8);
+  }
 
   &__braille {
     font-size: 2rem;
     color: $color-secondary;
-    margin-bottom: 16px;
+    margin-bottom: 7px;
   }
 
   &__title {
     font-family: 'Atkinson Hyperlegible', sans-serif;
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 1.55rem;
     color: $color-text-heading;
     margin-bottom: 8px;
   }
