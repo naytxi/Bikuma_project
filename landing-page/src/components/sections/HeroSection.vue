@@ -204,7 +204,12 @@ import UiBackgroundSquare from '@/components/ui/BackgroundSquare.vue'
     }
 
     &__square {
-      display: none;
+       position: absolute;
+      width: 430px;      
+      height: 260px;     
+      top: 20px;        
+      left: 40px;       
+      z-index: 1;   
     }
   }
 }
