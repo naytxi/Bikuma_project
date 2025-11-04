@@ -1,14 +1,20 @@
 <template>
-  <div id="app">
-    <NavBar />
-    <router-view />
+  <div id="app" class="app">
+    <Navbar />
+    <HeroSection />
   </div>
 </template>
 
 <script setup>
-import NavBar from '@/components/layout/NavBar.vue'
+import Navbar from '@/components/layout/NavBar.vue'
+import HeroSection from '@/components/sections/HeroSection.vue'
 </script>
 
 <style lang="scss">
-@use '@/assets/styles/main.scss' as *;
+@use "@/assets/styles/variables" as *;
+
+.app {
+  background-color: $color-background;
+  min-height: 100vh;
+}
 </style>
