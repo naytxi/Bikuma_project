@@ -49,7 +49,7 @@ import UiBackgroundSquare from '@/components/ui/BackgroundSquare.vue'
   }
 
   &__text {
-    width: 290px;
+    width: 390px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -58,8 +58,7 @@ import UiBackgroundSquare from '@/components/ui/BackgroundSquare.vue'
 
     h1 {
       color: $color-text-heading;
-      font-weight: 700;
-      font-size: 2.3rem;
+      font-size: 3rem;
       line-height: 1.2;
     }
 
