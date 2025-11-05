@@ -132,7 +132,7 @@ const trackStyle = computed(() => {
 @media (max-width: 768px) {
 
   .news-carousel {
-    padding: 50px 0 60px;
+    padding: 60px 0 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -189,8 +189,7 @@ const trackStyle = computed(() => {
     height: 320px;
     border-radius: 22px;
     transition: transform 0.3s ease;
-  }
 }
-
+}
 
 </style>
