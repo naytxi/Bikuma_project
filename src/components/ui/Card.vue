@@ -36,17 +36,17 @@ defineProps({
   }
 
   &__braille {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: $color-secondary;
-    margin-bottom: 7px;
+    margin-bottom: 1px;
   }
 
   &__title {
     font-family: 'Atkinson Hyperlegible', sans-serif;
-    font-weight: 700;
-    font-size: 1.55rem;
+    font-weight: 650;
+    font-size: 1.30rem;
     color: $color-text-heading;
-    margin-bottom: 8px;
+    margin-bottom: 1px;
   }
 
   &__text {

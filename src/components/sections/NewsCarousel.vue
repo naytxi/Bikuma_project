@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useCarousel } from '@/utils/useCarousel'
 import NewsCard from '@/components/common/NewsCard.vue'
 
@@ -35,6 +35,7 @@ const newsItems = ref([
 ])
 
 const visible = 3
+const isMobile = ref(window.innerWidth <= 768)
 
 const { currentIndex, next, prev } = useCarousel(newsItems, {
   autoPlay: false,
@@ -42,15 +43,37 @@ const { currentIndex, next, prev } = useCarousel(newsItems, {
   visibleItems: visible
 })
 
-const trackStyle = computed(() => {
-  const centerOffset = Math.floor(visible / 2)
- const shiftPercent = ((currentIndex.value - 1) * 100) / visible
+const handleResize = () => {
+  const mobileNow = window.innerWidth <= 768
+  if (mobileNow !== isMobile.value) {
+    isMobile.value = mobileNow
+    if (mobileNow) {
+     
+      currentIndex.value = 0
+    }
+  }
+}
 
+onMounted(() => {
+  window.addEventListener('resize', handleResize)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize)
+})
+
+const trackStyle = computed(() => {
+  if (isMobile.value) {
+    return { transform: 'none' } 
+  }
+
+  const shiftPercent = ((currentIndex.value - 1) * 100) / visible
   return {
     transform: `translateX(-${shiftPercent}%)`
   }
 })
 </script>
+
 
 <style lang="scss" scoped>
 @use "@/assets/styles/variables" as *;
@@ -66,7 +89,7 @@ const trackStyle = computed(() => {
     font-size: 2rem;
     font-weight: 700;
     color: $color-text-heading;
-    margin-bottom: 120px;
+    margin-bottom: 100px;
   }
 
   &__wrapper {
@@ -96,7 +119,7 @@ const trackStyle = computed(() => {
   z-index: 1;
 
   &.active {
-    transform: scale(1.1);
+    transform: scale(1.2);
     opacity: 1;
     z-index: 3;
   }
@@ -174,8 +197,11 @@ const trackStyle = computed(() => {
 
       &:hover {
         transform: scale(1.05);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
         z-index: 2;
+      }
+      &.active {
+        transform: scale(1); 
       }
     }
 
