@@ -1,18 +1,22 @@
 <template>
-  <section class="news-carousel">
-    <h2 class="news-carousel__title">Conoce las últimas novedades de Puntodis</h2>
+  <section class="projects-carousel">
+    <h2 class="projects-carousel__title">Proyectos de accesibilidad universal</h2>
 
-    <div class="news-carousel__wrapper" :style="{'--visible': visible}">
+    <div class="projects-carousel__wrapper" :style="{'--visible': visible}">
       <button class="arrow left" @click="prev" aria-label="Anterior">‹</button>
 
-      <div class="news-carousel__track" :style="trackStyle">
+      <div class="projects-carousel__track" :style="trackStyle">
         <div
-          v-for="(news, index) in newsItems"
+          v-for="(project, index) in projectItems"
           :key="index"
-          class="news-carousel__slide"
+          class="projects-carousel__slide"
           :class="{ active: index === currentIndex }"
         >
-          <NewsCard :image="news.image" :tag="news.tag" :title="news.title" />
+          <ProjectCard 
+            :image="project.image" 
+            :title="project.title" 
+            :location="project.location" 
+          />
         </div>
       </div>
 
@@ -22,22 +26,22 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useCarousel } from '@/utils/useCarousel'
-import NewsCard from '@/components/common/NewsCard.vue'
+import ProjectCard from '@/components/common/ProjectCard.vue'
 
-const newsItems = ref([
-  { image: new URL('@/assets/image/noticia1.png', import.meta.url).href, tag: 'Señaletica', title: 'Manual de señalización accesible para un mundo más inclusivo' },
-  { image: new URL('@/assets/image/noticia2.png', import.meta.url).href, tag: 'Turismo', title: '¿Tienes cita en Fitur? La accesibilidad estará en tu agenda' },
-  { image: new URL('@/assets/image/noticia3.jpg', import.meta.url).href, tag: 'Turismo', title: '¿Tienes cita en Fitur? La accesibilidad estará en tu agenda' },
-  { image: new URL('@/assets/image/noticia4.png', import.meta.url).href, tag: 'Análisis', title: 'Piensa en más accesibilidad para personas con Asperger' },
-  { image: new URL('@/assets/image/noticia5.jpg', import.meta.url).href, tag: 'Proyectos', title: 'Polideportivos con accesibilidad en Bilbao Kirolak' },
+const projectItems = ref([
+  { image: new URL('@/assets/image/project1.jpg', import.meta.url).href, title: 'Manual de señalización accesible para un mundo más inclusivo', location: 'Bilbao' },
+  { image: new URL('@/assets/image/project2.jpg', import.meta.url).href, title: 'La estrategia integral para el fomento de la accesibilidad en bilbobus', location: 'Bilbao' },
+  { image: new URL('@/assets/image/project3.jpg', import.meta.url).href, title: 'Alhóndiga bilbao – centro azkuna, pensando en la accesibilidad para todos', location: 'Bilbao' },
+  { image: new URL('@/assets/image/project4.jpg', import.meta.url).href, title: 'Vilamuseu «museos para todos»', location: 'Vila Joiosa ' },
+  { image: new URL('@/assets/image/project5.jpg', import.meta.url).href, title: 'La accesibilidad en el turismo entra ya al siguiente nivel', location: 'Getxo' },
 ])
 
 const visible = 3
 const isMobile = ref(window.innerWidth <= 768)
 
-const { currentIndex, next, prev } = useCarousel(newsItems, {
+const { currentIndex, next, prev } = useCarousel(projectItems, {
   autoPlay: false,
   loop: true,
   visibleItems: visible
@@ -47,38 +51,24 @@ const handleResize = () => {
   const mobileNow = window.innerWidth <= 768
   if (mobileNow !== isMobile.value) {
     isMobile.value = mobileNow
-    if (mobileNow) {
-     
-      currentIndex.value = 0
-    }
+    if (mobileNow) currentIndex.value = 0
   }
 }
 
-onMounted(() => {
-  window.addEventListener('resize', handleResize)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('resize', handleResize)
-})
+onMounted(() => window.addEventListener('resize', handleResize))
+onUnmounted(() => window.removeEventListener('resize', handleResize))
 
 const trackStyle = computed(() => {
-  if (isMobile.value) {
-    return { transform: 'none' } 
-  }
-
+  if (isMobile.value) return { transform: 'none' }
   const shiftPercent = ((currentIndex.value - 1) * 100) / visible
-  return {
-    transform: `translateX(-${shiftPercent}%)`
-  }
+  return { transform: `translateX(-${shiftPercent}%)` }
 })
 </script>
-
 
 <style lang="scss" scoped>
 @use "@/assets/styles/variables" as *;
 
-.news-carousel {
+.projects-carousel {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -108,22 +98,22 @@ const trackStyle = computed(() => {
     will-change: transform;
   }
 
-&__slide {
-  flex: 0 0 calc(33.55% - 0.2rem); 
-  display: flex;
-  justify-content: center;
-  padding: 0 0.1rem; 
-  opacity: 0.6;
-  transform: scale(0.9);
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  z-index: 1;
+  &__slide {
+    flex: 0 0 calc(33.55% - 0.2rem);
+    display: flex;
+    justify-content: center;
+    padding: 0 0.1rem;
+    opacity: 0.6;
+    transform: scale(0.9);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    z-index: 1;
 
-  &.active {
-    transform: scale(1.2);
-    opacity: 1;
-    z-index: 3;
+    &.active {
+      transform: scale(1.2);
+      opacity: 1;
+      z-index: 3;
+    }
   }
-}
 
   .arrow {
     background: $color-white;
@@ -152,11 +142,10 @@ const trackStyle = computed(() => {
     }
   }
 }
-@media (max-width: 768px) {
 
-  .news-carousel {
-    padding: 60px 0 60px;
-    display: flex;
+@media (max-width: 768px) {
+  .projects-carousel {
+    padding: 60px 0;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -169,18 +158,14 @@ const trackStyle = computed(() => {
     }
 
     &__wrapper {
-      display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       max-width: 100%;
-      overflow: visible;
-      position: relative;
       gap: 30px;
     }
 
     &__track {
-      display: flex;
       flex-direction: column;
       gap: 40px;
       align-items: center;
@@ -189,8 +174,8 @@ const trackStyle = computed(() => {
     }
 
     &__slide {
-      width: 92%;
-      opacity: 1; 
+      width: 100%;
+      opacity: 1;
       transform: scale(1);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
       cursor: pointer;
@@ -198,10 +183,10 @@ const trackStyle = computed(() => {
       &:hover {
         transform: scale(1.05);
         box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
-        z-index: 2;
       }
+
       &.active {
-        transform: scale(1); 
+        transform: scale(1);
       }
     }
 
@@ -209,13 +194,5 @@ const trackStyle = computed(() => {
       display: none;
     }
   }
-
-  .news-card {
-    width: 280px;
-    height: 320px;
-    border-radius: 22px;
-    transition: transform 0.3s ease;
 }
-}
-
 </style>

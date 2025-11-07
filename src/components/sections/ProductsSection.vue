@@ -60,6 +60,11 @@ const products = [
 }
 
 @media (max-width: 768px) {
+
+  .products {
+    padding: 80px 10px;
+  }
+
   .products__grid {
     flex-direction: column;
     gap: 30px;
@@ -67,7 +72,7 @@ const products = [
   }
 
   .products__item {
-    width: 70%;
+    width: 60%;
   }
 }
 </style>

@@ -168,7 +168,7 @@ import UiBackgroundSquare from '@/components/ui/BackgroundSquare.vue'
 
 @media (max-width: 768px) {
   .about {
-    padding: 40px 20px;
+    padding: 30px 20px;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;

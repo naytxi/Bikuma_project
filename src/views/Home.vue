@@ -7,6 +7,7 @@
     <ServiceSection />
     <AboutSection />
     <ProductsSection />
+    <ProjectsSection />
   </div>
 </template>
 
@@ -18,6 +19,7 @@ import NewsSection from '@/components/sections/NewsCarousel.vue'
 import ServiceSection from '@/components/sections/ServiceSection.vue'
 import AboutSection from '@/components/sections/AboutSection.vue'
 import ProductsSection from '@/components/sections/ProductsSection.vue'
+import ProjectsSection from '@/components/sections/ProjectsSection.vue'
 </script>
 
 <style lang="scss">
