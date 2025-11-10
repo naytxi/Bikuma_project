@@ -56,6 +56,12 @@ import Footer from '@/components/layout/Footer.vue'
 <style lang="scss">
 @use "@/assets/styles/variables" as *;
 
+html, body, #app {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 .app {
   background-color: $color-background;
   min-height: 100vh;
