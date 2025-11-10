@@ -7,7 +7,7 @@ export function useCarousel(items, options = {}) {
   const {
     autoPlay = false,
     delay = 5000,
-    loop = true
+    loop = false
   } = options
 
   const total = computed(() => (items.value ? items.value.length : 0))
@@ -40,10 +40,5 @@ export function useCarousel(items, options = {}) {
     if (interval) clearInterval(interval)
   })
 
-  return {
-    currentIndex,
-    next,
-    prev,
-    goTo
-  }
+  return { currentIndex, next, prev, goTo, total }
 }

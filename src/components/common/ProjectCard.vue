@@ -1,21 +1,23 @@
 <template>
-  <div class="news-card" :style="bgImageStyle">
-    <div class="news-card__overlay">
-      <div class="news-card__tag">{{ tag }}</div>
-      <h5 class="news-card__title">{{ title }}</h5>
+  <div class="project-card" :style="bgImageStyle">
+    <div class="project-card__overlay">
+      <h5 class="project-card__title">{{ title }}</h5>
+      <div class="project-card__location">
+        <Icon icon="lucide:map-pin" width="16" height="16" />
+        <span>{{ location }}</span>
+      </div>
     </div>
   </div>
 </template>
 
-
 <script setup>
-import Card from '@/components/ui/Card.vue'
+import { Icon } from '@iconify/vue'
 import { computed } from 'vue'
 
 const props = defineProps({
   image: { type: String, required: true },
-  tag: { type: String, required: true },
-  title: { type: String, required: true }
+  title: { type: String, required: true },
+  location: { type: String, required: true }
 })
 
 const bgImageStyle = computed(() => ({
@@ -28,7 +30,7 @@ const bgImageStyle = computed(() => ({
 <style lang="scss" scoped>
 @use "@/assets/styles/variables" as *;
 
-.news-card {
+.project-card {
   width: 320px;
   height: 350px;
   border-radius: 24px;
@@ -51,38 +53,43 @@ const bgImageStyle = computed(() => ({
 
   &__overlay {
     position: absolute;
-    bottom: 16px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     width: 280px;
     height: 122px;
     background: $color-white;
     border-radius: 16px;
-    padding: 16px;
+    padding: 14px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 8px;
+    gap: 1px;
     z-index: 2; 
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
   }
 
-  &__tag {
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: $color-primary-light;
-    text-transform: uppercase;
-  }
-
   &__title {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: $color-text-heading;
+  }
+
+  &__location {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    font-size: 0.9rem;
+    color: $color-primary-light;
+
+    svg {
+      color: $color-primary-light;
+    }
   }
 }
 
 @media (max-width: 768px) {
-  .news-card {
+  .project-card {
     width: 220px;
     height: 260px;
 
@@ -91,18 +98,16 @@ const bgImageStyle = computed(() => ({
       height: 120px;
       padding: 12px;
       bottom: 12px;
-      gap:2px;
+      gap: 1px;
     }
 
-    &__tag {
-      font-size: 0.8rem;
-      margin-top: 20px;
-    }
     &__title {
-      font-size: 1rem;
+      font-size: 0.95rem;
+    }
+
+    &__location {
+      font-size: 0.85rem;
     }
   }
 }
 </style>
-
-

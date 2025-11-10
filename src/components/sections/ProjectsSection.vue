@@ -1,23 +1,27 @@
 <template>
-  <section class="news-carousel">
-    <h2 class="news-carousel__title">Conoce las últimas novedades de Puntodis</h2>
+  <section class="projects-carousel">
+    <h2 class="projects-carousel__title">Proyectos de accesibilidad universal</h2>
 
-    <div class="news-carousel__wrapper">
+    <div class="projects-carousel__wrapper">
       <button class="arrow left" @click="prev" aria-label="Anterior">‹</button>
 
       <div 
-        class="news-carousel__track" 
+        class="projects-carousel__track" 
         :style="trackStyle"
         @touchstart="isMobile && handleTouchStart($event)"
         @touchend="isMobile && handleTouchEnd($event)"
       >
         <div
-          v-for="(news, index) in newsItems"
+          v-for="(project, index) in projectItems"
           :key="index"
-          class="news-carousel__slide"
+          class="projects-carousel__slide"
           :class="{ active: index === currentIndex }"
         >
-          <NewsCard :image="news.image" :tag="news.tag" :title="news.title" />
+          <ProjectCard 
+            :image="project.image" 
+            :title="project.title" 
+            :location="project.location" 
+          />
         </div>
       </div>
 
@@ -29,19 +33,19 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useCarousel } from '@/utils/useCarousel'
-import NewsCard from '@/components/common/NewsCard.vue'
+import ProjectCard from '@/components/common/ProjectCard.vue'
 
-const newsItems = ref([
-  { image: new URL('@/assets/image/news/noticia1.png', import.meta.url).href, tag: 'Señaletica', title: 'Manual de señalización accesible para un mundo más inclusivo' },
-  { image: new URL('@/assets/image/news/noticia2.png', import.meta.url).href, tag: 'Turismo', title: '¿Tienes cita en Fitur? La accesibilidad estará en tu agenda' },
-  { image: new URL('@/assets/image/news/noticia3.jpg', import.meta.url).href, tag: 'Turismo', title: '¿Tienes cita en Fitur? La accesibilidad estará en tu agenda' },
-  { image: new URL('@/assets/image/news/noticia4.png', import.meta.url).href, tag: 'Análisis', title: 'Piensa en más accesibilidad para personas con Asperger' },
-  { image: new URL('@/assets/image/news/noticia5.jpg', import.meta.url).href, tag: 'Proyectos', title: 'Polideportivos con accesibilidad en Bilbao Kirolak' },
+const projectItems = ref([
+  { image: new URL('@/assets/image/projects/proyecto1.png', import.meta.url).href, title: 'Manual de señalización accesible para un mundo más inclusivo', location: 'Bilbao' },
+  { image: new URL('@/assets/image/projects/proyecto2.jpg', import.meta.url).href, title: 'La estrategia integral para el fomento de la accesibilidad en bilbobus', location: 'Bilbao' },
+  { image: new URL('@/assets/image/projects/proyecto3.jpg', import.meta.url).href, title: 'Alhóndiga bilbao – centro azkuna, pensando en la accesibilidad para todos', location: 'Bilbao' },
+  { image: new URL('@/assets/image/projects/proyecto4.jpg', import.meta.url).href, title: 'Vilamuseu «museos para todos»', location: 'Vila Joiosa' },
+  { image: new URL('@/assets/image/projects/proyecto5.jpg', import.meta.url).href, title: 'La accesibilidad en el turismo entra ya al siguiente nivel', location: 'Getxo' },
 ])
 
 const visible = 3
 const isMobile = ref(window.innerWidth <= 768)
-const { currentIndex, next, prev } = useCarousel(newsItems, { autoPlay: false, loop: true, visibleItems: visible })
+const { currentIndex, next, prev } = useCarousel(projectItems, { autoPlay: false, loop: true, visibleItems: visible })
 
 const handleResize = () => {
   const mobileNow = window.innerWidth <= 768
@@ -67,7 +71,6 @@ const trackStyle = computed(() => {
   return { transform: `translateX(-${shiftPercent}%)`, transition: 'transform 0.6s ease' }
 })
 
-
 const touchStartX = ref(0)
 const touchEndX = ref(0)
 const minSwipeDistance = 40
@@ -88,7 +91,7 @@ const handleTouchEnd = (e) => {
 <style lang="scss" scoped>
 @use "@/assets/styles/variables" as *;
 
-.news-carousel {
+.projects-carousel {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -164,14 +167,14 @@ const handleTouchEnd = (e) => {
 }
 
 @media (max-width: 768px) {
-  .news-carousel {
+  .projects-carousel {
     padding: 80px 0;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     &__title {
-      font-size: 1.7rem;
+      font-size: 1.8rem;
       margin-bottom: 60px;
       text-align: center;
       line-height: 1.3;
@@ -217,7 +220,7 @@ const handleTouchEnd = (e) => {
     }
   }
 
-  .news-card {
+.project-card {
     width: 280px;
     height: 320px;
     border-radius: 22px;
