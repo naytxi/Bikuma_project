@@ -49,7 +49,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { Icon } from '@iconify/vue'
 import BaseButton from '@/components/ui/BaseButton.vue'
-import BaseTiendaButton from '@/components/ui/BaseTiendaButton.vue'
+import BaseTiendaButton from '@/components/ui/BaseShopButton.vue'
 
 const isOpen = ref(false)
 

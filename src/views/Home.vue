@@ -8,6 +8,8 @@
     <AboutSection />
     <ProductsSection />
     <ProjectsSection />
+    <SponsorsSection />
+    <Footer />
   </div>
 </template>
 
@@ -20,6 +22,8 @@ import ServiceSection from '@/components/sections/ServiceSection.vue'
 import AboutSection from '@/components/sections/AboutSection.vue'
 import ProductsSection from '@/components/sections/ProductsSection.vue'
 import ProjectsSection from '@/components/sections/ProjectsSection.vue'
+import SponsorsSection from '@/components/sections/SponsorsSection.vue'
+import Footer from '@/components/layout/Footer.vue'
 </script>
 
 <style lang="scss">
