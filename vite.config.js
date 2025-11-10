@@ -18,6 +18,7 @@ export default defineConfig({
       svg: { multipass: true },
     }),
   ],
+  base: '/Bikuma_project/',
 
   resolve: {
     alias: {

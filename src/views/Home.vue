@@ -59,9 +59,11 @@ import Footer from '@/components/layout/Footer.vue'
 html, body, #app {
   margin: 0;
   padding: 0;
+  padding-top: 10px; 
   overflow-x: hidden;
+  overflow-y: auto;
   background-color: $color-background;
-  min-height: 100vh;
+  min-height: 100dvh; 
 }
 
 </style>

@@ -2,19 +2,19 @@
   <header class="navbar">
     <div class="navbar__container">
       <div class="navbar__logo">
-        <img src="@/assets/image/navbar/logotipoo.png" alt="Logo" />
+        <img src="@/assets/image/logotipoo.png" alt="Logo" />
       </div>
 
       <nav class="navbar__links">
-        <a href="#services" @click.prevent="scrollTo('services')">Servicios</a>
-        <a href="#products" @click.prevent="scrollTo('products')">Productos</a>
-        <a href="#cta" @click.prevent="scrollTo('cta')">Administración Pública</a>
-        <a href="#about" @click.prevent="scrollTo('about')">Conócenos</a>
-        <a href="#news" @click.prevent="scrollTo('news')">Actualidad</a>
+        <a href="#services">Servicios</a>
+        <a href="#products">Productos</a>
+        <a href="#cta">Administración Pública</a>
+        <a href="#about">Conócenos</a>
+        <a href="#news">Actualidad</a>
       </nav>
 
       <div class="navbar__actions">
-        <BaseButton variant="contactar" @click="scrollTo('newsletter')" :showArrow="false">Contactar</BaseButton>
+        <BaseButton variant="contactar" :showArrow="false">Contactar</BaseButton>
         <BaseTiendaButton>Tienda</BaseTiendaButton>
         <button class="btn btn--search">
           <Icon icon="mdi:magnify" />
@@ -30,15 +30,15 @@
 
     <transition name="slide">
       <div v-if="isOpen" class="navbar__mobile">
-        <a href="#services" @click="scrollTo('services'); closeMenu()">Servicios</a>
-        <a href="#products" @click="scrollTo('products'); closeMenu()">Productos</a>
-        <a href="#cta" @click="scrollTo('cta'); closeMenu()">Administración Pública</a>
-        <a href="#about" @click="scrollTo('about'); closeMenu()">Conócenos</a>
-        <a href="#news" @click="scrollTo('news'); closeMenu()">Actualidad</a>
+        <a href="#services" @click="closeMenu">Servicios</a>
+        <a href="#products" @click="closeMenu">Productos</a>
+        <a href="#cta" @click="closeMenu">Administración Pública</a>
+        <a href="#about" @click="closeMenu">Conócenos</a>
+        <a href="#news" @click="closeMenu">Actualidad</a>
 
         <div class="navbar__mobile-actions">
-          <BaseButton variant="contactar" @click="scrollTo('newsletter'); closeMenu()">Contactar</BaseButton>
-          <BaseTiendaButton @click="closeMenu()">Tienda</BaseTiendaButton>
+          <BaseButton variant="contactar" :showArrow="false">Contactar</BaseButton>
+          <BaseTiendaButton>Tienda</BaseTiendaButton>
         </div>
       </div>
     </transition>
@@ -49,7 +49,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { Icon } from '@iconify/vue'
 import BaseButton from '@/components/ui/BaseButton.vue'
-import BaseTiendaButton from '@/components/ui/BaseShopButton.vue'
+import BaseTiendaButton from '@/components/ui/BaseTiendaButton.vue'
 
 const isOpen = ref(false)
 
@@ -64,13 +64,6 @@ const closeMenu = () => {
 const handleResize = () => {
   if (window.innerWidth > 768 && isOpen.value) {
     isOpen.value = false
-  }
-}
-
-const scrollTo = (sectionId) => {
-  const el = document.getElementById(sectionId)
-  if (el) {
-    el.scrollIntoView({ behavior: 'smooth' })
   }
 }
 
@@ -229,6 +222,7 @@ onUnmounted(() => {
   }
 }
 
+
 @media (max-width: 768px) {
   .navbar {
     &__container {
@@ -236,11 +230,18 @@ onUnmounted(() => {
       padding: 1rem 1.5rem;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 70px; 
+      background-color: $color-background; 
+      box-shadow: 0 2px 8px rgba($color-black, 0.1);
+      z-index: 1000;
     }
 
     &__logo {
-      display: none;
+      display: none; 
     }
 
     &__links {
@@ -269,15 +270,32 @@ onUnmounted(() => {
       }
     }
   }
+
+  .navbar__mobile {
+    position: fixed;
+    top: 70px; 
+    left: 0;
+    width: 100%;
+    max-width: 300px; 
+    padding: 1rem;
+    background-color: $color-background; 
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 12px rgba($color-black, 0.1);
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 1100; 
+
+      a {
+    font-weight: 600;
+    color: $color-text-heading;
+    text-decoration: none;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $color-secondary; 
+    }
+  }
+  }
 }
 
-.slide-enter-active,
-.slide-leave-active {
-  transition: all 0.3s ease;
-}
-.slide-enter-from,
-.slide-leave-to {
-  opacity: 0;
-  transform: translateY(-10px);
-}
 </style>
