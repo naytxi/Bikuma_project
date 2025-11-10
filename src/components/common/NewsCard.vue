@@ -87,8 +87,8 @@ const bgImageStyle = computed(() => ({
     height: 260px;
 
     &__overlay {
-      width: 240px;
-      height: 90px;
+      width: 220px;
+      height: 120px;
       padding: 12px;
       bottom: 12px;
       gap:2px;

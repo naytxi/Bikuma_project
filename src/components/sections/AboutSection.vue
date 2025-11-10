@@ -4,7 +4,7 @@
       <div class="about__image-wrapper">
         <UiBackgroundSquare class="about__square" />
         <img
-          src="@/assets/image/ilustracion2.png"
+          src="@/assets/image/about/ilustracion2.png"
           alt="Quienes somos"
           class="about__image"
         />
@@ -168,7 +168,7 @@ import UiBackgroundSquare from '@/components/ui/BackgroundSquare.vue'
 
 @media (max-width: 768px) {
   .about {
-    padding: 30px 20px;
+    padding: 30px 0;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;

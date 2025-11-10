@@ -14,11 +14,12 @@
 
 <script setup>
 const logos = [
-  new URL('@/assets/image/sponsor1.png', import.meta.url).href,
-  new URL('@/assets/image/sponsor2.png', import.meta.url).href,
-  new URL('@/assets/image/sponsor3.png', import.meta.url).href,
-  new URL('@/assets/image/sponsor4.png', import.meta.url).href,
-  new URL('@/assets/image/sponsor5.png', import.meta.url).href,
+  new URL('@/assets/image/sponsors/bizkaia.png', import.meta.url).href,
+  new URL('@/assets/image/sponsors/bbva.png', import.meta.url).href,
+  new URL('@/assets/image/sponsors/alsa.png', import.meta.url).href,
+  new URL('@/assets/image/sponsors/bilbus.png', import.meta.url).href,
+  new URL('@/assets/image/sponsors/bizkaibus.png', import.meta.url).href,
+  new URL('@/assets/image/sponsors/villa-museu.png', import.meta.url).href,
 ]
 </script>
 
@@ -45,7 +46,7 @@ const logos = [
   }
 
   &__logo {
-    height: 60px;
+    height: 120px;
     object-fit: contain;
     opacity: 0.9;
     pointer-events: none; 
@@ -62,7 +63,7 @@ const logos = [
     }
 
     &__logo {
-      height: 50px;
+      height: 90px;
     }
   }
 }

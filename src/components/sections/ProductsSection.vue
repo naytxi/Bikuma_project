@@ -1,8 +1,6 @@
 <template>
   <section class="products">
-    <!-- Título arriba de las cards -->
-    <h2>Productos</h2>
-
+    <h2 class="products-section__title">Productos</h2>
     <div class="products__grid">
       <div class="products__item" v-for="product in products" :key="product.id">
         <CardImage :image="product.image" />
@@ -16,10 +14,10 @@
 import CardImage from '@/components/ui/CardImage.vue'
 
 const products = [
-  { id: 1, title: 'Señalización. Diseño, validación y fabricación', image: new URL('@/assets/image/producto1.jpg', import.meta.url).href },
-  { id: 2, title: 'Planos y cuadros tactovisuales', image: new URL('@/assets/image/producto2.jpg', import.meta.url).href },
-  { id: 3, title: 'Papelería, vinilos y etiquetas', image: new URL('@/assets/image/producto3.png', import.meta.url).href },
-  { id: 4, title: 'Pavimento tactil', image: new URL('@/assets/image/producto4.jpg', import.meta.url).href },
+  { id: 1, title: 'Señalización. Diseño, validación y fabricación', image: new URL('@/assets/image/products/producto1.jpg', import.meta.url).href },
+  { id: 2, title: 'Planos y cuadros tactovisuales', image: new URL('@/assets/image/products/producto2.jpg', import.meta.url).href },
+  { id: 3, title: 'Papelería, vinilos y etiquetas', image: new URL('@/assets/image/products/producto3.png', import.meta.url).href },
+  { id: 4, title: 'Pavimento tactil', image: new URL('@/assets/image/products/producto4.jpg', import.meta.url).href },
 ]
 </script>
 
@@ -29,7 +27,7 @@ const products = [
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap:40px;
+  gap: 50px;
 
   &__grid {
     display: flex;
@@ -51,18 +49,22 @@ const products = [
       box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.8);
     }
   }
+
     .products__title {
     margin-top: 16px;
-    font-size: 12px;
-    margin-left: 12px;
-    margin-right: 12%;
+    font-size: 15px;
+    margin-left: 1px;
   }
+
 }
 
 @media (max-width: 768px) {
-
   .products {
     padding: 80px 10px;
+  }
+  
+  .products-section__title {
+    font-size: 2rem;
   }
 
   .products__grid {

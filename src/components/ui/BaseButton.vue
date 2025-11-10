@@ -1,7 +1,7 @@
 <template>
   <button
     :class="['base-button', `base-button--${variant}`]"
-    @click="$emit('click')"
+    @click="handleClick"
   >
     <slot />
     <Icon
@@ -25,6 +25,19 @@ defineProps({
     default: true,
   },
 })
+
+const emit = defineEmits(['click'])
+
+const handleClick = (e) => {
+  if (variant === 'contactar') {
+    const el = document.getElementById('newsletter')
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' })
+      return
+    }
+  }
+  emit('click', e)
+}
 </script>
 
 <style lang="scss" scoped>

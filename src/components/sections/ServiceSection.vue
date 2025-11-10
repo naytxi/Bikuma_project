@@ -66,6 +66,10 @@ import Card from '@/components/ui/Card.vue'
     gap: 28px;
   }
 
+  .service-section__title {
+   font-size: 2rem;
+  }
+
   .service-section__row {
     flex-direction: column;
     align-items: center;

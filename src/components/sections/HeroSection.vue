@@ -14,7 +14,7 @@
       <div class="hero__image-wrapper">
         <UiBackgroundSquare class="hero__square" />
         <img
-          src="@/assets/image/ilustracion.png"
+          src="@/assets/image/hero/ilustracion.png"
           alt="Accesibilidad"
           class="hero__image"
         />

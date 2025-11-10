@@ -3,7 +3,7 @@
     <div class="footer__container">
 
       <div class="footer__left">
-        <img src="@/assets/image/logotipoo.png" alt="Puntodis" class="footer__logo" />
+        <img src="@/assets/image/footer/logo.png" alt="Puntodis" class="footer__logo" />
         <p class="footer__text">
           Actualiza con nosotros tu proyecto con accesibilidad en la información
           y lleva tu mensaje a todas las personas.
@@ -11,18 +11,17 @@
         <BaseButton variant="contactar">Contactar</BaseButton>
 
         <div class="footer__partners">
-          <img src="@/assets/image/noticia2.png" alt="Partner 1" />
-          <img src="@/assets/image/noticia3.jpg" alt="Partner 2" />
-          <img src="@/assets/image/noticia5.jpg" alt="Partner 3" />
+          <img src="@/assets/image/footer/sponsor.png" alt="Partner 1" />
         </div>
       </div>
 
       <nav class="footer__nav">
-        <a href="#">Servicios</a>
-        <a href="#">Productos</a>
-        <a href="#">Administración Pública</a>
-        <a href="#">Conócenos</a>
-        <a href="#">Actualidad</a>
+        <a href="#services">Servicios</a>
+        <a href="#products">Productos</a>
+        <a href="#cta">Administración Pública</a>
+        <a href="#about">Conócenos</a>
+        <a href="#news">Actualidad</a>
+        <a href="#">Tienda</a>
       </nav>
 
       <div class="footer__newsletter">
@@ -52,9 +51,11 @@
       </div>
 
       <div class="footer__social">
+        <Icon icon="mdi:twitter" />
         <Icon icon="mdi:facebook" />
         <Icon icon="mdi:instagram" />
         <Icon icon="mdi:linkedin" />
+        <Icon icon="mdi:youtube" />
       </div>
     </div>
   </footer>
@@ -95,12 +96,6 @@ import { Icon } from '@iconify/vue'
     flex-direction: column;
     gap: 20px;
 
-    .footer__logo {
-      width: 220px;
-      height: auto;
-      object-fit: contain;
-    }
-
     .footer__text {
       font-size: 1rem;
       line-height: 1.6;
@@ -108,17 +103,25 @@ import { Icon } from '@iconify/vue'
       max-width: 320px;
     }
 
+    .footer__logo {
+      width: 220px;
+      height: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+
     .footer__partners {
       display: flex;
       align-items: center;
-      gap: 20px;
       margin-top: 10px;
+      margin-left: 30px;
 
       img {
-        height: 40px;
+        height: 80px;
         width: auto;
         object-fit: contain;
         opacity: 0.9;
+        filter: brightness(0) invert(1);
       }
     }
   }
@@ -273,7 +276,7 @@ import { Icon } from '@iconify/vue'
 
 @media (max-width: 768px) {
   .footer {
-    padding: 60px 20px;
+    padding: 120px 20px;
     gap: 40px;
 
     &__container {
@@ -304,7 +307,7 @@ import { Icon } from '@iconify/vue'
       align-items: center;
       text-align: center;
       padding: 20px 0 0;
-      gap: 8px;
+      gap: 40px;
     }
   }
 }

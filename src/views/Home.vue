@@ -1,15 +1,42 @@
 <template>
   <div id="app" class="app">
     <Navbar />
-    <HeroSection />
-    <CTASection />
-    <NewsSection />
-    <ServiceSection />
-    <AboutSection />
-    <ProductsSection />
-    <ProjectsSection />
-    <SponsorsSection />
-    <Footer />
+
+    <section id="hero">
+      <HeroSection />
+    </section>
+
+    <section id="cta">
+      <CTASection />
+    </section>
+
+    <section id="news">
+      <NewsSection />
+    </section>
+
+    <section id="services">
+      <ServiceSection />
+    </section>
+
+    <section id="about">
+      <AboutSection />
+    </section>
+
+    <section id="products">
+      <ProductsSection />
+    </section>
+
+    <section id="projects">
+      <ProjectsSection />
+    </section>
+
+    <section id="sponsors">
+      <SponsorsSection />
+    </section>
+
+    <footer id="newsletter">
+      <Footer />
+    </footer>
   </div>
 </template>
 
