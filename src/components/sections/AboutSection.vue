@@ -146,7 +146,7 @@ import UiBackgroundSquare from '@/components/ui/BackgroundSquare.vue'
 
       .about__image {
         position: relative;
-        width: 100%;
+        width: 110%;
         height: auto;
         object-fit: contain;
         margin-left: 200px;

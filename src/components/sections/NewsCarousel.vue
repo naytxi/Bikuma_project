@@ -2,6 +2,10 @@
   <section class="news-carousel">
     <h2 class="news-carousel__title">Conoce las últimas novedades de Puntodis</h2>
 
+    <div v-if="isMobile" class="swipe-indicator">
+      <span class="swipe-arrow">⇠⇢</span>
+    </div>
+
     <div class="news-carousel__wrapper">
       <button class="arrow left" @click="prev" aria-label="Anterior">‹</button>
 
@@ -66,7 +70,6 @@ const trackStyle = computed(() => {
   const shiftPercent = ((currentIndex.value - 1) * 100) / visible
   return { transform: `translateX(-${shiftPercent}%)`, transition: 'transform 0.6s ease' }
 })
-
 
 const touchStartX = ref(0)
 const touchEndX = ref(0)
@@ -172,7 +175,7 @@ const handleTouchEnd = (e) => {
 
     &__title {
       font-size: 1.7rem;
-      margin-bottom: 60px;
+      margin-bottom: 20px;
       text-align: center;
       line-height: 1.3;
     }
@@ -214,6 +217,20 @@ const handleTouchEnd = (e) => {
 
     .arrow {
       display: none;
+    }
+
+    .swipe-indicator {
+      margin-top: 20px;
+      font-size: 2.5rem;
+      color: rgba($color-text-heading, 0.6);
+      animation: swipeHint 1.6s ease-in-out infinite;
+      user-select: none;
+    }
+
+    @keyframes swipeHint {
+      0% { transform: translateX(0); opacity: 0.6; }
+      50% { transform: translateX(-15px); opacity: 1; }
+      100% { transform: translateX(0); opacity: 0.6; }
     }
   }
 

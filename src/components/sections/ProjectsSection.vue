@@ -2,6 +2,10 @@
   <section class="projects-carousel">
     <h2 class="projects-carousel__title">Proyectos de accesibilidad universal</h2>
 
+        <div v-if="isMobile" class="swipe-indicator">
+      <span class="swipe-arrow">⇠⇢</span>
+    </div>
+
     <div class="projects-carousel__wrapper">
       <button class="arrow left" @click="prev" aria-label="Anterior">‹</button>
 
@@ -27,6 +31,8 @@
 
       <button class="arrow right" @click="next" aria-label="Siguiente">›</button>
     </div>
+
+
   </section>
 </template>
 
@@ -168,14 +174,14 @@ const handleTouchEnd = (e) => {
 
 @media (max-width: 768px) {
   .projects-carousel {
-    padding: 80px 0;
+    padding: 70px 0;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     &__title {
       font-size: 1.8rem;
-      margin-bottom: 60px;
+      margin-bottom: 30px;
       text-align: center;
       line-height: 1.3;
     }
@@ -218,9 +224,23 @@ const handleTouchEnd = (e) => {
     .arrow {
       display: none;
     }
+
+    .swipe-indicator {
+      margin-top: 20px;
+      font-size: 2.5rem;
+      color: rgba($color-text-heading, 0.6);
+      animation: swipeHint 1.6s ease-in-out infinite;
+      user-select: none;
+    }
+
+    @keyframes swipeHint {
+      0% { transform: translateX(0); opacity: 0.6; }
+      50% { transform: translateX(-15px); opacity: 1; }
+      100% { transform: translateX(0); opacity: 0.6; }
+    }
   }
 
-.project-card {
+  .project-card {
     width: 280px;
     height: 320px;
     border-radius: 22px;
