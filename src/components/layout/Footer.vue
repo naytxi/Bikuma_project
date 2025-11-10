@@ -282,6 +282,16 @@ import { Icon } from '@iconify/vue'
       text-align: center;
     }
 
+    &__left {
+      .footer__partners {
+        margin-left: 0; 
+        justify-content: center; 
+        display: flex;
+        width: 100%;
+        gap: 10px;
+      }
+    }
+
     &__nav {
       flex-direction: row;
       flex-wrap: wrap;
@@ -294,9 +304,10 @@ import { Icon } from '@iconify/vue'
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 20px 0 0;
+      padding: 20px 35px 0;
       gap: 40px;
     }
   }
 }
+
 </style>
