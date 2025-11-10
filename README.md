@@ -1,7 +1,8 @@
 # 🚀 Landing Page – Proyecto de Prueba
 
 Este proyecto es una **landing page desarrollada con Vue 3 y Vite**, creada como **proyecto de prueba** para demostrar la maquetación, estructura de componentes, buenas prácticas y optimización del rendimiento en un entorno moderno de desarrollo web.
-
+Podeis verlo en deploy aqui:
+https://naytxi.github.io/Bikuma_project/
 ---
 
 ## 🎨 Diseño en Figma
