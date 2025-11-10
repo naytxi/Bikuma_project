@@ -112,50 +112,6 @@ import UiBackgroundSquare from '@/components/ui/BackgroundSquare.vue'
   }
 }
 
-@media (max-width: 1024px) and (min-width: 769px) {
-  .hero {
-    padding: 80px 60px;
-
-    &__content {
-      gap: 40px;
-    }
-
-    &__text {
-      width: 380px;
-
-      h1 {
-        font-size: 2rem;
-      }
-
-      p {
-        font-size: 18px;
-      }
-
-      .hero__button {
-        width: 230px;
-        height: 50px;
-      }
-    }
-
-    &__image-wrapper {
-      width: 500px;
-      height: 420px;
-      margin-left: 20px;
-    }
-
-    &__image {
-      width: 440px;
-      left: 10px;
-    }
-
-    &__square {
-      width: 520px;
-      height: 400px;
-      top: 30px;
-      left: 80px;
-    }
-  }
-}
 
 @media (max-width: 768px) {
   .hero {

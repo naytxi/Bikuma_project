@@ -55,12 +55,6 @@ import Card from '@/components/ui/Card.vue'
   }
 }
 
-@media (max-width: 1024px) {
-  .service-section__row {
-    gap: 28px;
-  }
-}
-
 @media (max-width: 768px) {
   .service-section__cards {
     gap: 28px;

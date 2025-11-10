@@ -28,12 +28,6 @@ import Card from '@/components/ui/Card.vue'
   }
 }
 
-@media (max-width: 1024px) {
-  .cta__cards {
-    gap: 24px;
-  }
-}
-
 @media (max-width: 768px) {
   .cta__cards {
     flex-direction: column;

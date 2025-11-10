@@ -16,7 +16,6 @@ defineProps({
   height: 286px;
   border-radius: 32px;
   overflow: hidden;
-  background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;

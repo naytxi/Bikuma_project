@@ -60,10 +60,8 @@ html, body, #app {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-}
-
-.app {
   background-color: $color-background;
   min-height: 100vh;
 }
+
 </style>

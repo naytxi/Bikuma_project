@@ -262,18 +262,6 @@ import { Icon } from '@iconify/vue'
   }
 }
 
-@media (max-width: 1024px) {
-  .footer {
-    &__container {
-      padding: 0 60px;
-    }
-
-    &__bottom {
-      padding: 20px 60px 0;
-    }
-  }
-}
-
 @media (max-width: 768px) {
   .footer {
     padding: 120px 20px;

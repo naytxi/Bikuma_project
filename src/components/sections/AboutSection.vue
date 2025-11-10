@@ -108,63 +108,6 @@ import UiBackgroundSquare from '@/components/ui/BackgroundSquare.vue'
   }
 }
 
-@media (max-width: 1024px) and (min-width: 769px) {
-  .about {
-    padding: 60px 40px;
-
-    &__content {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 40px; 
-      position: relative;
-    }
-
-    &__image-wrapper {
-      width: 500px;
-      height: 400px;
-      position: relative;
-    }
-
-    &__image {
-      width: 440px;
-      left: -20px; 
-      top: -10px;
-      position: relative;
-    }
-
-    &__square {
-      width: 100%; 
-      max-width: 1024px;
-      height: 400px;
-      top: 0;
-      left: 0;
-    }
-
-    &__text {
-      width: 100%;
-      max-width: 350px;
-      gap: 16px;
-      margin-top: 0; 
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      h3 {
-        font-size: 2rem;
-      }
-
-      p {
-        font-size: 1rem;
-      }
-
-      .about__button {
-        width: 220px;
-        height: 48px;
-      }
-    }
-  }
-}
 
 @media (max-width: 768px) {
   .about {

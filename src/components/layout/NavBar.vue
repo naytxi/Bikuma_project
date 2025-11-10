@@ -92,7 +92,7 @@ onUnmounted(() => {
   background-color: $color-background;
   display: flex;
   justify-content: center;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1000;
   box-shadow: 0 0.2rem 0.8rem rgba($color-black, 0.05);
@@ -229,39 +229,7 @@ onUnmounted(() => {
   }
 }
 
-@media (max-width: 1024px) and (min-width: 769px) {
-  .navbar {
-    &__container {
-      width: 100%;
-      padding: 1.5rem 3rem;
-      gap: 10px;
-      height: 80px;
-    }
-
-    &__logo img {
-      width: 180px;
-      height: auto;
-    }
-
-    &__links {
-      gap: 15px;
-
-      a {
-        font-size: 0.9rem;
-      }
-    }
-
-    &__actions {
-      gap: 10px;
-
-      .btn--search svg {
-        font-size: 1.2rem;
-      }
-    }
-  }
-}
-
-@media (max-width: 740px) {
+@media (max-width: 768px) {
   .navbar {
     &__container {
       width: 100%;
