@@ -2,7 +2,7 @@
   <header class="navbar">
     <div class="navbar__container">
       <div class="navbar__logo">
-        <img src="@/assets/image/logotipoo.png" alt="Logo" />
+        <img src="@/assets/image/navbar/logotipoo.png" alt="Logo" />
       </div>
 
       <nav class="navbar__links">
@@ -49,7 +49,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { Icon } from '@iconify/vue'
 import BaseButton from '@/components/ui/BaseButton.vue'
-import BaseTiendaButton from '@/components/ui/BaseTiendaButton.vue'
+import BaseTiendaButton from '@/components/ui/BaseShopButton.vue'
 
 const isOpen = ref(false)
 
